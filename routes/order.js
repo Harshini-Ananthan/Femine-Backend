@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         const userId = req.userData.id;
         const orders = await Order.find({ user: userId }).populate('products.product').sort({ createdAt: -1 });
         console.log(orders)
-        res.json(orders);
+        res.json({orders});
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server Error" });
