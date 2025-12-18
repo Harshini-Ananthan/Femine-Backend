@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         res.json({orders});
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: "Server Error" });
+        res.status(500).json({ error: error.message });
     }
 });
 
